@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -12,9 +14,18 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
+    String name;
+    Passport passport;
+    Address addr;
+    
+    
+    public Person(Passport passport, Address address) {
+        this.passport = passport;
+        this.addr = address;
+    }
 
     /*
-     * TODO(Студент): Создайте класс Address.
+     * Класс Address создан
      *
      * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
      *
@@ -48,9 +59,19 @@ public class Person {
      */
     public String getFullName() {
         /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
+         * метод 'getFullName()' класса 'Person' определен
          */
-        return null;
+        String fullName = "John Dow";
+        if (this.passport.otchestvo.equals("empty")&&this.passport.middleName.equals("empty")) {
+            fullName = this.passport.name.concat(" ").concat(this.passport.surname);
+        }
+        if (this.passport.otchestvo.equals("empty")) {
+            fullName = this.passport.name.concat(" ").concat(this.passport.middleName.substring(0, 1)).concat(". ").concat(this.passport.surname);
+        }
+        if (this.passport.middleName.equals("empty")) {
+            fullName = this.passport.name.concat(" ").concat(this.passport.otchestvo).concat(" ").concat(this.passport.surname);
+        }
+        return fullName;
     }
 
     /**
@@ -63,8 +84,14 @@ public class Person {
      */
     public String getAddress() {
         /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
+         * Метода 'getAddress()' класса 'Person' определен
          */
-        return null;
+        String regAddress = "homeless";
+        int personFlatNumber = this.addr.getFlatNumber();
+        if (personFlatNumber==0) {
+            regAddress = this.addr.getCountry().concat(" ").concat(this.addr.getCity()).concat(" ").concat(this.addr.getStreet()).concat(" ").concat(Integer.toString(this.addr.getHouseNumber()));
+        } else
+            regAddress = this.addr.getCountry().concat(" ").concat(this.addr.getCity()).concat(" ").concat(this.addr.getStreet()).concat(" ").concat(Integer.toString(this.addr.getHouseNumber())).concat(" ").concat(Integer.toString(this.addr.getFlatNumber()));
+        return regAddress;
     }
 }

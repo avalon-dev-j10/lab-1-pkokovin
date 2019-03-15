@@ -1,5 +1,48 @@
+package ru.avalon.java.dev.j10.labs.commons;
+
+public class Address {
+    String country;
+    String city;
+    String street;
+    int houseNumber;
+    int flatNumber;
+    
+    public Address(String country, String city, String street, int houseNumber){
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.flatNumber = 0;
+    }
+    
+    public Address(String country, String city, String street, int houseNumber, int flatNumber){
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.flatNumber = flatNumber;
+    }
+    
+    public String getCountry(){
+        return country;
+}    
+    public String getCity(){
+        return city;
+}
+    public String getStreet(){
+        return street;
+    }
+    public Integer getHouseNumber(){
+        return houseNumber;
+    }
+    public Integer getFlatNumber(){
+        return flatNumber;
+    }
+    
+}
+
 /*
- * TODO(Студент): Создайте класс Address.
+ * класс Address создан
  *
  * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
  *

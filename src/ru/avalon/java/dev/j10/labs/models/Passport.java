@@ -15,10 +15,82 @@ package ru.avalon.java.dev.j10.labs.models;
  *  <li> орган, выдавший документ.
  * </ol>
  */
-class Passport {
+public class Passport {
+    int passSerial;
+    int passNumber;
+    String name;
+    String surname;
+    String otchestvo;
+    String middleName;
+    String birthday;
+    String getPassportDate;
+    String policeDepartment;
+    
+    public Passport(int passSerial, int passNumber, String name, String surname, String birthday, String getPassportDate, String policeDepartment) {
+        this.passSerial = passSerial;
+        this.passNumber = passNumber;
+        this.name = name;
+        this.surname = surname;
+        this.otchestvo = "empty";
+        this.middleName = "empty";
+        this.birthday = birthday;
+        this.getPassportDate = getPassportDate;
+        this.policeDepartment = policeDepartment;
+    }
+    public Passport(int passSerial, int passNumber, String name, String otchestvo, String surname, String birthday, String getPassportDate, String policeDepartment) {
+        this.passSerial = passSerial;
+        this.passNumber = passNumber;
+        this.name = name;
+        this.surname = surname;
+        this.otchestvo = otchestvo;
+        this.middleName = "empty";
+        this.birthday = birthday;
+        this.getPassportDate = getPassportDate;
+        this.policeDepartment = policeDepartment;
+    }
+    
+    public Passport(String name, String middleName, String surname, int passSerial, int passNumber, String birthday, String getPassportDate, String policeDepartment) {
+        this.passSerial = passSerial;
+        this.passNumber = passNumber;
+        this.name = name;
+        this.surname = surname;
+        this.otchestvo = "empty";
+        this.middleName = middleName;
+        this.birthday = birthday;
+        this.getPassportDate = getPassportDate;
+        this.policeDepartment = policeDepartment;
+    }
+    
+    public Integer getPassSerial(){
+        return passSerial;
+    }
+    public Integer getPassNumber() {
+        return passNumber;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public String getOtchestvo() {
+        return otchestvo;
+    }
+    public String getMiddleName() {
+        return middleName;
+    }
+    public String getBirthday() {
+        return birthday;
+    }
+    public String getGetPassportDate() {
+        return getPassportDate;
+    }
+    public String getPoliceDepartment() {
+        return policeDepartment;
+    }
 
     /*
-     * TODO(Студент): Закончить определение класса.
+     * Класс Passport определен
      *
      * 1. Объявить атрибуты класса.
      *
