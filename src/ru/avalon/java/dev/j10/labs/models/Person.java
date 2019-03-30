@@ -14,14 +14,15 @@ import ru.avalon.java.dev.j10.labs.commons.Address;
  * </ol>
  */
 public class Person {
-    String name;
-    Passport passport;
-    Address addr;
+    private String name;
+    private Passport passport;
+    private Address addr;
     
     
     public Person(Passport passport, Address address) {
         this.passport = passport;
         this.addr = address;
+        this.name = passport.getName();
     }
 
     /*
@@ -57,19 +58,24 @@ public class Person {
      *
      * @return имя человека в виде строки.
      */
+    
+    public String getName() {
+        return name;
+    }
+
     public String getFullName() {
         /*
-         * метод 'getFullName()' класса 'Person' определен
-         */
+        * метод 'getFullName()' класса 'Person' определен
+        */
         String fullName = "John Dow";
-        if (this.passport.otchestvo.equals("empty")&&this.passport.middleName.equals("empty")) {
-            fullName = this.passport.name.concat(" ").concat(this.passport.surname);
+        if (this.passport.getOtchestvo().equals("empty")&&this.passport.getMiddleName().equals("empty")) {
+            fullName = this.passport.getName().concat(" ").concat(this.passport.getSurname());
         }
-        if (this.passport.otchestvo.equals("empty")) {
-            fullName = this.passport.name.concat(" ").concat(this.passport.middleName.substring(0, 1)).concat(". ").concat(this.passport.surname);
+        if (this.passport.getOtchestvo().equals("empty")) {
+            fullName = this.passport.getName().concat(" ").concat(this.passport.getMiddleName().substring(0, 1)).concat(". ").concat(this.passport.getSurname());
         }
-        if (this.passport.middleName.equals("empty")) {
-            fullName = this.passport.name.concat(" ").concat(this.passport.otchestvo).concat(" ").concat(this.passport.surname);
+        if (this.passport.getMiddleName().equals("empty")) {
+            fullName = this.passport.getName().concat(" ").concat(this.passport.getOtchestvo()).concat(" ").concat(this.passport.getSurname());
         }
         return fullName;
     }

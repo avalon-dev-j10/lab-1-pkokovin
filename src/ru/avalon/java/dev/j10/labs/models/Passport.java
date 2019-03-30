@@ -16,15 +16,15 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Passport {
-    int passSerial;
-    int passNumber;
-    String name;
-    String surname;
-    String otchestvo;
-    String middleName;
-    String birthday;
-    String getPassportDate;
-    String policeDepartment;
+    private final int passSerial;
+    private final int passNumber;
+    private final String name;
+    private final String surname;
+    private final String otchestvo;
+    private final String middleName;
+    private final String birthday;
+    private final String getPassportDate;
+    private final String policeDepartment;
     
     public Passport(int passSerial, int passNumber, String name, String surname, String birthday, String getPassportDate, String policeDepartment) {
         this.passSerial = passSerial;
